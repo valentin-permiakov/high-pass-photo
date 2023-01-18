@@ -1,0 +1,213 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(http-equiv="X-UA-Compatible" content="IE=edge")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    title Document
+    link(rel="stylesheet" href="main.css")
+    script(src="app.js" defer)
+    script(defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjjxqbxu8LNmTjaAQFxUCuG9vBk2gjiGs&callback=initMap&v=weekly")
+  body
+    header.header
+      .container.header__grid
+        a.header__logo-link(href="#")
+          svg: use(xlink:href="./img/sprite.svg#logo")
+        nav.header__nav
+          ul.nav-list.container-flex#header-nav
+            li.nav-list__item
+              a.nav-list__link(href="#section-about") О студии
+            li.nav-list__item
+              a.nav-list__link(href="#section-projects") Наши проекты
+            li.nav-list__item
+              a.nav-list__link(href="#section-contacts") Контакты
+            li.nav-list__item.nav-list__item--phone
+              a.info__phone-link(href="tel:+7-495-424-23-532")
+                svg.phone-btn__img: use(xlink:href="./img/sprite.svg#phone")
+                | +7 495 424-23-532
+          .header__burger-container
+            button.header__burger-btn#burger-btn
+              span.burger-btn__span
+              span.burger-btn__span
+              span.burger-btn__span
+        form.header__search
+          .header-search__input-container#search-container
+            input.header-search__input(placeholder="Что будем искать?")
+            button.header-search__close-btn#close-search
+              svg: use(xlink:href="./img/sprite.svg#close")
+          button.header-search__btn#search-btn
+            svg: use(xlink:href="./img/sprite.svg#search")
+    main
+      h1 High Pass Фото-студия
+      section.section-hero
+        .container.hero
+          .hero__focus-container
+            picture.focus__img
+              source(media="(max-width:714px)" srcset="./img/hero/hero-masterclass-320.jpg")
+              source(media="(max-width:962px)" srcset="./img/hero/hero-masterclass-768.jpg")
+              source(media="(max-width:1290px)" srcset="./img/hero/hero-masterclass-1024.jpg")
+              img(src="./img/hero/hero-masterclass.jpg" alt="Picture of a camera")
+            span.focus__hashtag &#35;мастеркласс
+            .focus__description-container
+              span.focus__description Мастер-класс от Игоря Рябова
+              h2.focus__heading Неоновый фотосет 2.0 7 июля 20:00
+              a.focus__link(tabindex="0" href="#") Узнать больше
+          h2.hero__heading Работы участников предыдущего мастер-класса
+          picture.hero__img
+            source(media="(max-width:714px)" srcset="./img/hero/hero-girl-1-320.jpg")
+            source(media="(max-width:962px)" srcset="./img/hero/hero-girl-1-768.jpg")
+            source(media="(max-width:1290px)" srcset="./img/hero/hero-girl-1-1024.jpg")
+            img(src="./img/hero/hero-girl-1.jpg" alt="Picture of a camera")
+          picture.hero__img
+            source(media="(max-width:714px)" srcset="./img/hero/hero-girl-2-320.jpg")
+            source(media="(max-width:962px)" srcset="./img/hero/hero-girl-2-768.jpg")
+            source(media="(max-width:1290px)" srcset="./img/hero/hero-girl-2-1024.jpg")
+            img(src="./img/hero/hero-girl-2.jpg" alt="Picture of a camera")
+          picture.hero__img
+            source(media="(max-width:714px)" srcset="./img/hero/hero-girl-3-320.jpg")
+            source(media="(max-width:962px)" srcset="./img/hero/hero-girl-3-768.jpg")
+            source(media="(max-width:1290px)" srcset="./img/hero/hero-girl-3-1024.jpg")
+            img(src="./img/hero/hero-girl-3.jpg" alt="Picture of a camera")
+      section.section-about#section-about
+        .container.about
+          .about__text-container
+            h2.about__heading О студии
+            p.about__description
+              | В рамках спецификации современных стандартов, интерактивные прототипы, инициированные
+              | исключительно синтетически, ограничены исключительно образом мышления.
+              | Предварительные выводы неутешительны: высокотехнологичная концепция общественного уклада
+              | требует от нас анализа соответствующих условий активизации! Следует отметить, что 
+              | семантический разбор внешних противодействий фиксирует необходимость распределения
+              | внутренних резервов и ресурсов. Безусловно, граница обучения кадров предоставляет широкие
+              | возможности для первоочередных требований. Повседневная практика показывает, что глубокий
+              | уровень погружения предполагает независимые способы реализации новых принципов
+              | формирования материально-технической и кадровой базы. Приятно, граждане, наблюдать, как 
+              | явные признаки институционализации являются только методом политического участия и 
+              | нарушающими общечеловеческие нормы этики.
+          picture.about__img
+            source(media="(max-width:714px)" srcset="./img/about/about-camera-320.jpg")
+            source(media="(max-width:962px)" srcset="./img/about/about-camera-768.jpg")
+            source(media="(max-width:1290px)" srcset="./img/about/about-camera-1024.jpg")
+            img(src="./img/about/about-camera.jpg" alt="Picture of a camera")
+          form.about__subscription-form(action="")
+            h3.about__form-heading Подписаться на рассылку
+            input.subscription-form__input(type="email" placeholder="Email")
+            button.subscription-form__button Отправить
+      section.section-projects#section-projects
+        .container
+          h2.section__heading Наши проекты
+          .projects
+            .projects__card#project-landscape
+              picture.card__img
+                source(media="(max-width:714px)" srcset="./img/projects/project-landscape-320.jpg")
+                source(media="(max-width:1290px)" srcset="./img/projects/project-landscape-1024-768.jpg")
+                img(src="./img/projects/project-landscape.jpg" alt="photo of nature")
+              span.card__hashtag &#35;пейзаж
+              p.card__description Синтетически, смешаны с не уникальными данными до степени…
+              svg.card__calendar: use(xlink:href="./img/sprite.svg#calendar")
+              span.card__date 16 июня
+            .projects__card#project-man
+              picture.card__img
+                source(media="(max-width:714px)" srcset="./img/projects/project-portrait-320.jpg")
+                source(media="(max-width:1290px)" srcset="./img/projects/project-portrait-1024-768.jpg")
+                img(src="./img/projects/project-portrait.jpg" alt="photo of a man")
+              span.card__hashtag &#35;портрет
+              p.card__description В своём стремлении улучшить опыт мы упускаем, что явные...
+              svg.card__calendar: use(xlink:href="./img/sprite.svg#calendar")
+              span.card__date 28 мая
+            .projects__card#project-still
+              picture.card__img
+                source(media="(max-width:714px)" srcset="./img/projects/project-still-320.jpg")
+                source(media="(max-width:962px)" srcset="./img/projects/project-still-768.jpg")
+                source(media="(max-width:1290px)" srcset="./img/projects/project-still-1024.jpg")
+                img(src="./img/projects/project-still.jpg" alt="photo of objects")
+              span.card__hashtag &#35;предмет
+              p.card__description Равным образом, высокое качество позиционных высокотехнологичная концепция общественного уклада
+              svg.card__calendar: use(xlink:href="./img/sprite.svg#calendar")
+              span.card__date 14 мая
+            .projects__card.projects__card--big#project-fiji
+              picture.card__img
+                source(media="(max-width:714px)" srcset="./img/projects/project-fuji-320.jpg")
+                source(media="(max-width:962px)" srcset="./img/projects/project-fuji-768.jpg")
+                source(media="(max-width:1290px)" srcset="./img/projects/project-fuji-1024.jpg")
+                img(src="./img/projects/project-fuji.jpg" alt="photo of a woman")
+              span.card__hashtag &#35;fuji
+              .card__info-container
+                svg.card__calendar: use(xlink:href="./img/sprite.svg#calendar")
+                span.card__date 9 апреля
+                h3.card__heading Семантический разбор
+                p.card__description В рамках спецификации современных стандартов, интерактивные прототипы
+              a.card__link О проекте
+            .projects__card.projects__card--big#project-oblivion
+              picture.card__img
+                source(media="(max-width:714px)" srcset="./img/projects/project-oblivion-320.jpg")
+                source(media="(max-width:962px)" srcset="./img/projects/project-oblivion-768.jpg")
+                source(media="(max-width:1290px)" srcset="./img/projects/project-oblivion-1024.jpg")
+                img(src="./img/projects/project-oblivion.jpg" alt="photo of a woman")
+              span.card__hashtag &#35;проектзабвение
+              .card__info-container
+                svg.card__calendar: use(xlink:href="./img/sprite.svg#calendar")
+                span.card__date 20 марта
+                h3.card__heading Забвение
+                p.card__description Играет важную роль в формировании глубокомысленных рассуждений
+              a.card__link О проекте
+            .projects__card.projects__card--medium#project-retouch
+              picture.card__img
+                source(media="(max-width:714px)" srcset="./img/projects/project-retouch-320.jpg")
+                source(media="(max-width:1290px)" srcset="./img/projects/project-retouch-1024-768.jpg")
+                img(src="./img/projects/project-retouch.jpg" alt="photo of oranges")
+              span.card__hashtag &#35;ретуш
+              p.card__description Как принято считать, многие известные личности и по сей день остаются уделом либералов…
+              svg.card__calendar: use(xlink:href="./img/sprite.svg#calendar")
+              span.card__date 9 марта
+            .projects__card.projects__card--medium#project-woman
+              picture.card__img
+                source(media="(max-width:714px)" srcset="./img/projects/project-portrait-girl-320.jpg")
+                source(media="(max-width:1290px)" srcset="./img/projects/project-portrait-girl-1024-768.jpg")
+                img(src="./img/projects/project-portrait-girl.jpg" alt="photo of a woman")
+              span.card__hashtag &#35;портрет
+              p.card__description С учётом сложившейся международной обстановки, новая модель организационной…
+              svg.card__calendar: use(xlink:href="./img/sprite.svg#calendar")
+              span.card__date 1 марта
+      section.section-contacts#section-contacts
+        .container
+          h2.section__heading.contacts__heading Контакты
+        .contacts__grid.container
+          button.contacts__info-btn#info-btn
+            svg: use(xlink:href="./img/sprite.svg#phone")
+          .contacts__info-wrapper.contacts__info-wrapper--active#contacts-info
+            button.info__close-btn#close-info-btn
+              svg.close-btn__img: use(xlink:href="./img/sprite.svg#close")
+            h3.info__heading Студия &laquo;High Pass&raquo;
+            p.info__address
+              | 107045, Москва, Даев переулок, дом 41, бизнес-центр &laquo;Даев Плаза&raquo;, этаж 8, офис № 82
+            a.info__phone-link(href="tel:+7-495-424-23-532")
+              svg.phone-btn__img: use(xlink:href="./img/sprite.svg#phone")
+              | +7 495 424-23-532
+          .contacts__map#contacts-map
+          form.contacts__contact-form
+            h3.contact-form__heading Оставить заявку
+            p.contact-form__description
+              | Оставьте ваши данные, указав в графе «Комментарий» желаемые время и дату съёмки или другого мероприятия
+            input.contact-form__input(type="text" placeholder="Имя" required)
+            input.contact-form__input(type="email" placeholder="Email" required)
+            textarea.contact-form__textarea(name="message" rows="6" placeholder="Комментарий" required)
+            button.contact-form__submit-btn Отправить
+    footer.footer
+      .container.footer__container
+        .footer__logo-container
+          a.footer__logo-link(href="#")
+            svg: use(xlink:href="./img/sprite.svg#logo")
+            | Фотостудия High pass&circledR; 2018–2020
+        p.footer__quote
+          | Которая из моих фотографий самая любимая? Та, которую я собираюсь снять завтра. &copy;Имоджен Каннингем
+        .footer__link-container
+          h4.footer__link-heading Больше интересного:
+          .link-wrapper
+            a.footer__link(href="#")
+              svg: use(xlink:href="./img/sprite.svg#ok")
+            a.footer__link(href="##")
+              svg: use(xlink:href="./img/sprite.svg#vk")
+
+
+

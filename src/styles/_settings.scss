@@ -1,0 +1,83 @@
+@use 'variables' as var;
+@use 'mixins';
+
+/* Fonts */
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('robotoregular'), local('roboto-regular'),
+    url('./fonts/roboto-regular.woff2') format('woff2'),
+    url('./fonts/roboto-regular.woff') format('woff');
+  font-style: normal;
+  font-display: swap;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: local('robotoBold'), local('roboto-Bold'),
+    url('./fonts/roboto-bold.woff2') format('woff2'),
+    url('./fonts/roboto-bold.woff') format('woff');
+  font-style: normal;
+  font-display: swap;
+  font-weight: 700;
+}
+
+
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-color: #fff;
+    font-family: 'Roboto', 'Helvetica', sans-serif;
+  }
+}
+
+input, textarea {
+  border-radius: 0;
+  font-family: 'Roboto', 'Helvetica', sans-serif;
+}
+
+button {
+  font-family: 'Roboto', 'Helvetica', sans-serif;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+h1 {
+  display: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+.container {
+  max-width: 1290px;
+  margin: 0 auto;
+}
+
+.container-flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.section__heading {
+  @include mixins.sectionHeading;
+  margin-bottom: 12px;
+  color: var.$color-main;
+}

@@ -1,0 +1,206 @@
+@use 'variables' as var;
+@use 'mixins';
+
+
+.section-contacts {
+  margin-bottom: 69px;
+}
+
+.contacts__grid {
+  display: grid;
+  grid-template-columns: 410px 1fr 410px;
+  gap: 0 30px;
+  position: relative;
+
+  .contacts__info-btn {
+    @include mixins.hidden;
+    position: absolute;
+    top: 70px;
+    left: 10px;
+    z-index: 4;
+    background-color: var.$color-light;
+    width: 40px;
+    height: 40px;
+    box-shadow: 1px 1px 10px 0 var.$color-main;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      height: 22px;
+      width: 22px;
+      fill: var.$btn-primary;
+      @include mixins.btnFillTransition;
+    }
+
+    &:hover {
+      svg {
+        fill: var.$btn-primary-hover;
+        @include mixins.btnFillTransition;
+      }
+    }
+
+    &:focus {
+      outline: 1px solid var.$btn-primary-active;
+      background-color: #ebebeb;
+    }
+
+    &:active {
+      outline: none;
+      background-color: var.$color-light;
+    }
+  }
+
+  .contacts__info-btn--active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .25s ease-in;
+  }
+
+  .contacts__info-wrapper {
+    @include mixins.hidden;
+    display: block;
+    grid-area: 1/1/2/2;
+    position: relative;
+    padding: 175px 50px 100px 60px;
+    background-color: rgba(32, 32, 32, 0.85);
+    color: var.$color-light;
+    z-index: 2;
+
+    .info__close-btn {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+
+      svg {
+        height: 20px;
+        width: 20px;
+        fill: #808080;
+        @include mixins.btnFillTransition;
+      }
+
+      &:hover {
+        svg {
+          fill: var.$btn-primary;
+          @include mixins.btnFillTransition;
+        }
+      }
+
+      &:focus {
+        outline: none;
+        svg {
+          fill: var.$btn-primary-hover;
+          @include mixins.btnFillTransition;
+        }
+      }
+
+      &:active {
+        svg {
+          fill: var.$btn-primary-active;
+          @include mixins.btnFillTransition;
+        }
+      }
+    }
+
+    .info__heading {
+      margin-top: 0;
+      margin-bottom: 5px;
+      font-size: 24px;
+      line-height: 22px;
+      font-weight: 400;
+    }
+
+    .info__address {
+      margin-top: 0;
+      margin-bottom: 3px;
+      font-size: 16px;
+      line-height: 28px;
+      font-weight: 400;
+    }
+
+    .info__phone-link {
+      @include mixins.phoneLink;
+    }
+  }
+
+  .contacts__info-wrapper--active {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity .25s ease-in;
+  }
+
+  .contacts__map {
+    grid-area: 1/1/2/3;
+    z-index: 1;
+    width: 100%;
+    height: 460px;
+  }
+
+  .contact-form__heading {
+    margin-top: 0;
+    margin-bottom: 5px;
+    font-size: 24px;
+    line-height: 22px;
+    font-weight: 400;
+  }
+
+  .contact-form__description {
+    margin-top: 0;
+    margin-bottom: 17px;
+    color: #999999;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 400;
+  }
+
+  %form-input {
+    display: inline-block;
+    padding: 15px 23px;
+    margin-bottom: 20px;
+    width: 100%;
+    border: none;
+    background-color: #e9e9e9;
+    color: var.$color-main;
+    font-size: 16px;
+
+    &::placeholder {
+      color: #999999;
+      transition: color .2s ease-in;
+    }
+
+    &:hover {
+      &::placeholder {
+        color: var.$btn-primary;
+        transition: color .2s ease-in;
+      }
+    }
+
+    &:focus {
+      outline: 1px solid var.$btn-primary;
+
+      &::placeholder {
+        color: #999999;
+        transition: color .2s ease-in;
+      }
+    }
+
+    &:active {
+      outline: none;
+    }
+  }
+
+  .contact-form__input {
+    @extend %form-input;
+  }
+
+  .contact-form__textarea {
+    @extend %form-input;
+    resize: none;
+  }
+
+  .contact-form__submit-btn {
+    @include mixins.linkBtnPrimary;
+  }
+}
+
+

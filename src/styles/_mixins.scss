@@ -1,0 +1,122 @@
+@use 'variables' as var;
+
+@mixin hidden {
+  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity, .25s ease-in;
+}
+
+@mixin sectionHeading {
+  margin: 0;
+  font-size: 24px;
+  font-weight: 700;
+
+}
+
+@mixin btnBgTransition {
+  transition: background-color .3s ease-out;
+}
+
+@mixin btnFillTransition {
+  transition: fill .1s ease-in;
+}
+
+@mixin paddingBtn {
+  padding: 15px 22px;
+}
+
+@mixin listReset {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+@mixin linkReset {
+  text-decoration: none;
+}
+
+@mixin phoneLink {
+  @include linkReset;
+  padding-bottom: 5px;
+  color: var.$btn-primary;
+  transition: color .1s ease-in;
+
+  svg {
+    @include btnFillTransition;
+    height: 22px;
+    width: 22px;
+    transform: translateY(7px);
+    fill: var.$btn-primary;
+  }
+
+  &:hover {
+    color: var.$btn-primary-hover;
+    transition: color .1s ease-in;
+
+    svg {
+      @include btnFillTransition;
+      fill: var.$btn-primary-hover;
+    }
+  }
+
+  &:focus {
+    outline: 1px solid var.$btn-primary-active;
+  }
+}
+
+@mixin linkBtnPrimary {
+  @include linkReset;
+  @include paddingBtn;
+  @include btnBgTransition;
+  cursor: pointer;
+  background-color: var.$btn-primary;
+  color: var.$color-light;
+  font-size: 16px;
+  font-weight: 700;
+
+  &:hover {
+    @include btnBgTransition;
+    background-color: var.$btn-primary-hover;
+  }
+
+  &:focus {
+    @include btnBgTransition;
+    background-color: var.$btn-primary;
+    outline: 3px solid var.$btn-primary-active;
+  }
+
+  &:active {
+    @include btnBgTransition;
+    background-color: var.$btn-primary-active;
+    outline: none;
+  }
+}
+
+@mixin linkBtnSecondary {
+  @include linkReset;
+  @include paddingBtn;
+  @include btnBgTransition;
+  background-color: transparent;
+  border: 3px solid var.$btn-primary;
+  color: var.$color-light;
+  font-size: 16px;
+  font-weight: 700;
+
+  &:hover {
+    @include btnBgTransition;
+    background-color: var.$btn-primary;
+  }
+
+  &:focus {
+    @include btnBgTransition;
+    background-color: var.$btn-primary-hover;
+    outline: 3px solid var.$btn-primary-active;
+  }
+
+  &:active {
+    @include btnBgTransition;
+    background-color: var.$btn-primary-active;
+    outline: 1px solid var.$btn-primary-active;
+  }
+}

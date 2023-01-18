@@ -1,0 +1,110 @@
+@use 'variables' as var;
+@use 'mixins';
+
+.section-projects {
+  margin-bottom: 68px;
+
+  .projects {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: repeat(3, 190px) repeat(2, 300px);
+    grid-template-rows: repeat(2, 300px);
+
+    &__card {
+      position: relative;
+      max-width: 190px;
+      color: var.$color-main;
+
+      .card__hashtag {
+        position: absolute;
+        top: 7px;
+        right: 7px;
+        padding: 6px 14px;
+        background-color: var.$color-main;
+        color: var.$color-light;
+        font-size: 14px;
+        line-height: 16px;
+        font-weight: 400;
+      }
+
+      .card__description {
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+        margin-top: 18px;
+        margin-bottom: 13px;
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 400;
+      }
+
+      .card__calendar {
+        width: 14px;
+        height: 14px;
+        margin-right: 4px;
+        fill: #999999;
+        transform: translateY(2px);
+      }
+
+      .card__date {
+        color: #999999;
+        font-size: 12px;
+        line-height: 22px;
+        font-weight: 400;
+      }
+    }
+
+    &__card--medium {
+      max-width: 300px;
+    }
+
+    &__card--big {
+      max-width: 630px;
+
+      .card__info-container {
+        position: absolute;
+        top: 22px;
+        left: 29px;
+        max-width: 292px;
+        color: var.$color-light;
+
+        .card__calendar {
+          fill: var.$color-light;
+        }
+
+        .card__date {
+          color: var.$color-light;
+        }
+
+        .card__heading {
+          margin-top: 2px;
+          margin-bottom: 6px;
+          width: 200px;
+          font-size: 24px;
+          line-height: 24px;
+          font-weight: 700;
+        }
+
+        .card__description {
+          margin-top: 0;
+        }
+      }
+      .card__link {
+        @include mixins.linkBtnSecondary;
+        position: absolute;
+        left: 30px;
+        bottom: 30px;
+        cursor: pointer;
+      }
+    }
+
+    #project-fiji {
+      grid-column: 4/6;
+    }
+
+    #project-oblivion {
+      grid-column: 1/4;
+    }
+  }
+}

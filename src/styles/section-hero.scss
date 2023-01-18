@@ -1,0 +1,77 @@
+@use 'variables' as var;
+@use 'mixins';
+
+.section-hero {
+  margin-bottom: 68px;
+
+  .hero {
+    display: grid;
+    gap: 30px;
+    grid-template-areas:
+      "focus header header"
+      "focus photo1 photo1"
+      "focus photo2 photo3";
+    grid-template-rows: 13px 300px 257px;
+
+    &__focus-container {
+      grid-area: focus;
+      position: relative;
+
+      .focus__hashtag {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        padding: 7px 15px;
+        background-color: var.$color-main;
+        color: var.$color-light;
+        font-size: 14px;
+        font-weight: 400;
+      }
+
+      .focus__description-container {
+        position: absolute;
+        bottom: 80px;
+        left: 60px;
+        width: 400px;
+        color: var.$color-light;
+
+        .focus__description {
+          display: block;
+          margin-bottom: 3px;
+          font-size: 16px;
+          font-weight: 400;
+        }
+
+        .focus__heading {
+          margin: 0;
+          margin-bottom: 34px;
+          font-size: 36px;
+          line-height: 37px;
+        }
+
+        .focus__link {
+          @include mixins.linkBtnPrimary;
+        }
+      }
+    }
+
+    &__heading {
+      @include mixins.sectionHeading;
+      grid-area: header;
+      color: var.$color-main;
+      line-height: 24px;
+    }
+
+    &__img {
+      &:first-of-type {
+        grid-area: photo1;
+      }
+      &:nth-of-type(2) {
+        grid-area: photo2;
+      }
+      &:last-child {
+        grid-area: photo3;
+      }
+    }
+  }
+}
