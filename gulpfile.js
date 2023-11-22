@@ -110,6 +110,7 @@ const watchFiles = () => {
     server: {
       baseDir: 'dist',
     },
+    open: false,
   });
 };
 
